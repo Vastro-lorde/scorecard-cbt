@@ -41,6 +41,9 @@ namespace scorecard_cbt
             services.AddScoped<ICourseService, CourseService>();
             services.AddAutoMapper(typeof(CBTMappings));
             services.AddScoped<IExamRepository, ExamRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IOptionRepository, OptionRepository>();
+            services.AddScoped<IOptionService, OptionService>();
             services.AddScoped<IExamService, ExamService>();
             services.AddScoped<IImageService, ImageService>();
             var imageUploadConfig = Configuration

@@ -15,6 +15,14 @@ namespace scorecard_cbt.DTOs.Mapping
             CreateMap<Exam, ExamResponseDto>().ReverseMap();
             CreateMap<ExamRegistrationDto, Exam>().ReverseMap();
             CreateMap<ExamDetailResponseDto, Exam>().ReverseMap();
+
+            CreateMap<QuestionDetailResponseDto, Question>().ReverseMap();
+            CreateMap<QuestionRequestDto, Question>().ReverseMap();
+            CreateMap<QuestionResponseDto, Question>().ReverseMap();
+
+            CreateMap<OptionDetailResponseDto, Option>().ReverseMap();
+            CreateMap<OptionRequestDto, Option>().ReverseMap();
+            CreateMap<OptionResponseDto, Option>().ReverseMap();
         }
     }
 }

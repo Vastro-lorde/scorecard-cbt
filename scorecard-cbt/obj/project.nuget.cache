@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q/mW25rsK0bpxaHN1MPwfS0NLFFbO/HKNHtXEa+C7kClMvsgbpLo8NaaBkHLeMsmAGhsBQyMY7XJChBDP16ezQ==",
+  "dgSpecHash": "D9RaJr8RBrNvMd/Y9rMGBMCBtgHKD9FyfA9a3fkk3WjY/x63O8PfQMplfw5SUnMNQIXfxGqCLbaql6lgLzYVcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Desktop\\scorecard-project\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
+  "projectFilePath": "C:\\Users\\hp\\Source\\Repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

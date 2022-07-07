@@ -4,6 +4,7 @@ using scorecard_cbt.DTOs;
 using scorecard_cbt.Interfaces;
 using scorecard_cbt.Models;
 using scorecard_cbt.Repositories;
+using scorecard_cbt.Repositories.Interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -55,6 +56,7 @@ namespace scorecard_cbt.Controllers
             }
         }
 
+
         [HttpPut("UpdateCourse")]
         public async Task<IActionResult> UpdateUser(string Id, UpdateCourseDto updateCoursedDto)
         {
@@ -81,6 +83,7 @@ namespace scorecard_cbt.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Try again after 5 minutes");
             }
         }
+
 
         [HttpDelete("DeleteCourse")]
         public async Task<IActionResult> DeleteACourse(string courseId)

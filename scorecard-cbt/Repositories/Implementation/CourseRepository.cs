@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using scorecard_cbt.Context;
 using scorecard_cbt.Models;
+using scorecard_cbt.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

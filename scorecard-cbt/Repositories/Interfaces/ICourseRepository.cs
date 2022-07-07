@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace scorecard_cbt.Repositories
+namespace scorecard_cbt.Repositories.Interfaces
 {
     public interface ICourseRepository
     {

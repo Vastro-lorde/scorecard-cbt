@@ -3,6 +3,7 @@ using scorecard_cbt.DTOs;
 using scorecard_cbt.Interfaces;
 using scorecard_cbt.Models;
 using scorecard_cbt.Repositories;
+using scorecard_cbt.Repositories.Interfaces;
 using scorecard_cbt.Utilities.Pagination;
 using System;
 using System.Collections.Generic;
