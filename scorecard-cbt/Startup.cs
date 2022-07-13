@@ -42,6 +42,7 @@ namespace scorecard_cbt
             services.AddAutoMapper(typeof(CBTMappings));
             services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IOptionRepository, OptionRepository>();
             services.AddScoped<IOptionService, OptionService>();
             services.AddScoped<IExamService, ExamService>();

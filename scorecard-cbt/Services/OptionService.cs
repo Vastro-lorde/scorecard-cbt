@@ -106,15 +106,15 @@ namespace scorecard_cbt.Services
             throw new ArgumentException("Question not found");
         }
 
-        public async Task<Response<PaginationModel<IEnumerable<GetAllOptionsResponseDto>>>> GetAllOptionsAsync(int pageSize, int pageNumber)
+        public async Task<Response<PaginationModel<IEnumerable<GetAllOptionResponseDto>>>> GetAllOptionsAsync(int pageSize, int pageNumber)
         {
             var options = await _optionRepository.GetAllOptionsAsync();
-            var response = _mapper.Map<IEnumerable<GetAllOptionsResponseDto>>(options);
+            var response = _mapper.Map<IEnumerable<GetAllOptionResponseDto>>(options);
 
             if (options != null)
             {
                 var result = PaginationClass.PaginationAsync(response, pageSize, pageNumber);
-                return new Response<PaginationModel<IEnumerable<GetAllOptionsResponseDto>>>()
+                return new Response<PaginationModel<IEnumerable<GetAllOptionResponseDto>>>()
                 {
                     Data = result,
                     Message = "List of All Option",
@@ -122,7 +122,7 @@ namespace scorecard_cbt.Services
                     IsSuccessful = true
                 };
             }
-            return new Response<PaginationModel<IEnumerable<GetAllOptionsResponseDto>>>()
+            return new Response<PaginationModel<IEnumerable<GetAllOptionResponseDto>>>()
             {
                 Data = null,
                 Message = "No Registered Option",

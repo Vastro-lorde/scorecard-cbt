@@ -52,5 +52,11 @@ namespace scorecard_cbt.Controllers
             return StatusCode((int)deletedExam.ResponseCode, deletedExam);
         }
 
+        [HttpGet("GetAllExams")]
+        public async Task<IActionResult> GetAllExams(int pageSize, int pageNumber)
+        {
+            var response = await _examService.GetAllExamAsync(pageSize, pageNumber);
+            return StatusCode((int)response.ResponseCode, response);
+        }
     }
 }

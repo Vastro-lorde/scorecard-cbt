@@ -3,7 +3,9 @@ using scorecard_cbt.DTOs;
 using scorecard_cbt.Interfaces;
 using scorecard_cbt.Models;
 using scorecard_cbt.Repositories.Interfaces;
+using scorecard_cbt.Utilities.Pagination;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -72,6 +74,30 @@ namespace scorecard_cbt.Services
                 Message = "Exam Successfully Deleted",
                 ResponseCode = HttpStatusCode.OK,
                 IsSuccessful = true
+            };
+        }
+        public async Task<Response<PaginationModel<IEnumerable<GetAllExamResponseDto>>>> GetAllExamAsync(int pageSize, int pageNumber)
+        {
+            var exams = await _examRepository.GetAllExamAsync();
+            var response = _mapper.Map<IEnumerable<GetAllExamResponseDto>>(exams);
+
+            if (exams != null)
+            {
+                var result = PaginationClass.PaginationAsync(response, pageSize, pageNumber);
+                return new Response<PaginationModel<IEnumerable<GetAllExamResponseDto>>>()
+                {
+                    Data = result,
+                    Message = "List of All Exams",
+                    ResponseCode = HttpStatusCode.OK,
+                    IsSuccessful = true
+                };
+            }
+            return new Response<PaginationModel<IEnumerable<GetAllExamResponseDto>>>()
+            {
+                Data = null,
+                Message = "No Registered Exams",
+                ResponseCode = HttpStatusCode.NoContent,
+                IsSuccessful = false
             };
         }
     }

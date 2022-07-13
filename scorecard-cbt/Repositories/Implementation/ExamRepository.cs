@@ -33,5 +33,11 @@ namespace scorecard_cbt.Repositories.Implementation
             var exam = await _dbContext.Exams.FindAsync(id);
             return exam;
         }
+
+        public async Task<List<Exam>> GetAllExamAsync()
+        {
+            var exams = await _dbContext.Exams.ToListAsync();
+            return exams;
+        }
     }
 }

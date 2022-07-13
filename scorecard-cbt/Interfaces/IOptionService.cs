@@ -10,7 +10,7 @@ namespace scorecard_cbt.Interfaces
     {
         Task<Response<Option>> CreateOptionAsync(string QuestionId, OptionRequestDto createOption);
         Task<Response<Option>> DeleteOptionAsync(string OptionId);
-        Task<Response<PaginationModel<IEnumerable<GetAllOptionsResponseDto>>>> GetAllOptionsAsync(int pageSize, int pageNumber);
+        Task<Response<PaginationModel<IEnumerable<GetAllOptionResponseDto>>>> GetAllOptionsAsync(int pageSize, int pageNumber);
         Task<Response<OptionDetailResponseDto>> GetOptionByIdAsync(string OptionId);
         Task<Response<ICollection<Option>>> GetOptionsByQuestionAsync(string QuestionId);
         Task<Response<string>> UpdateOptionDetails(string OptionId, UpdateOptionDto updateOptionDto);

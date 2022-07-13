@@ -10,7 +10,7 @@ namespace scorecard_cbt.Interfaces
     {
         Task<Response<Question>> CreateQuestionAsync(QuestionRequestDto createQuestion);
         Task<Response<Question>> DeleteQuestionAsync(string QuestionId);
-        Task<Response<PaginationModel<IEnumerable<GetAllQuestionsResponseDto>>>> GetAllQuestionsAsync(int pageSize, int pageNumber);
+        Task<Response<PaginationModel<IEnumerable<GetAllQuestionResponseDto>>>> GetAllQuestionsAsync(int pageSize, int pageNumber);
         Task<Response<QuestionDetailResponseDto>> GetQuestionByIdAsync(string QuestionId);
         Task<Response<string>> UpdateQuestionDetails(string QuestionId, UpdateQuestionDto updateQuestionDto);
     }

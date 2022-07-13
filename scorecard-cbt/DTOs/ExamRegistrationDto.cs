@@ -14,6 +14,8 @@ namespace scorecard_cbt.DTOs
 
         [StringLength(250, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.DescriptionValidator)]
         public string Description { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
         public DateTime ScheduledStartDate { get; set; }
         public DateTime ScheduledEndDate { get; set; }
         public string CourseId { get; set; }

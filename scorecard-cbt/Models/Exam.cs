@@ -1,5 +1,6 @@
 ﻿using scorecard_cbt.ModelValidationHelper;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,5 +28,7 @@ namespace scorecard_cbt.Models
         
         [ForeignKey(nameof(Course))]
         public string CourseId { get; set; }
+
+        public virtual IEnumerable<Question> ExamQuestions { get; set; }
     }
 }

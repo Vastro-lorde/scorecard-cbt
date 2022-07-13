@@ -9,5 +9,6 @@ namespace scorecard_cbt.Repositories.Interfaces
         Task<Exam> GetExamByIdAsync(string id);
         Task<List<Exam>> CreateExamAsync(Exam exam);
         Task<bool> Delete(Exam request);
+        Task<List<Exam>> GetAllExamAsync();
     }
 }

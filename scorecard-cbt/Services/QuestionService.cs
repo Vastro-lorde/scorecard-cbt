@@ -112,15 +112,15 @@ namespace scorecard_cbt.Services
             throw new ArgumentException("Question not found");
         }
 
-        public async Task<Response<PaginationModel<IEnumerable<GetAllQuestionsResponseDto>>>> GetAllQuestionsAsync(int pageSize, int pageNumber)
+        public async Task<Response<PaginationModel<IEnumerable<GetAllQuestionResponseDto>>>> GetAllQuestionsAsync(int pageSize, int pageNumber)
         {
             var questions = await _questionRepository.GetAllQuestionsAsync();
-            var response = _mapper.Map<IEnumerable<GetAllQuestionsResponseDto>>(questions);
+            var response = _mapper.Map<IEnumerable<GetAllQuestionResponseDto>>(questions);
 
             if (questions != null)
             {
                 var result = PaginationClass.PaginationAsync(response, pageSize, pageNumber);
-                return new Response<PaginationModel<IEnumerable<GetAllQuestionsResponseDto>>>()
+                return new Response<PaginationModel<IEnumerable<GetAllQuestionResponseDto>>>()
                 {
                     Data = result,
                     Message = "List of All Questions",
@@ -128,7 +128,7 @@ namespace scorecard_cbt.Services
                     IsSuccessful = true
                 };
             }
-            return new Response<PaginationModel<IEnumerable<GetAllQuestionsResponseDto>>>()
+            return new Response<PaginationModel<IEnumerable<GetAllQuestionResponseDto>>>()
             {
                 Data = null,
                 Message = "No Questions Found",

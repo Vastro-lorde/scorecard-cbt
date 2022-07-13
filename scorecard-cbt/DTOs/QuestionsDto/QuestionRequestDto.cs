@@ -10,5 +10,6 @@ namespace scorecard_cbt.DTOs
         public string UpdatedBy { get; set; }
         public bool Status { get; set; }
         public short AnswerOptionId { get; set; }
+        public string ExamId { get; set; }
     }
 }
