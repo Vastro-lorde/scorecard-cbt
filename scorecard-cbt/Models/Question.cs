@@ -18,7 +18,7 @@ namespace scorecard_cbt.Models
         [StringLength(250, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.UpdatedByValidator)]
         public string UpdatedBy { get; set; }
         public bool Status { get; set; }
-        public short AnswerOptionId { get; set; }//OptionId
+        public char AnswerOption { get; set; }
         public virtual Exam Exam { get; set; }
     }
 }

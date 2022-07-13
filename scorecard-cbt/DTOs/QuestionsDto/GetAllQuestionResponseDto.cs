@@ -7,7 +7,7 @@
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public bool Status { get; set; }
-        public short AnswerOptionId { get; set; }
+        public char AnswerOption { get; set; }
         public string ExamId { get; set; }
     }
 }

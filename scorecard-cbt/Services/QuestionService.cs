@@ -87,7 +87,7 @@ namespace scorecard_cbt.Services
 
             if (question != null)
             {
-                question.AnswerOptionId = updateQuestionDto.AnswerOptionId;
+                question.AnswerOption = updateQuestionDto.AnswerOption;
                 question.Status = updateQuestionDto.Status;
                 question.Description = updateQuestionDto.Description;
                 question.UpdatedBy = updateQuestionDto.UpdatedBy;

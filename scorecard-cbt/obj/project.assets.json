@@ -5836,11 +5836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Source\\Repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
       "projectName": "scorecard-cbt",
-      "projectPath": "C:\\Users\\hp\\Source\\Repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
+      "projectPath": "C:\\Users\\hp\\source\\repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Source\\Repos\\scorecard-cbt\\scorecard-cbt\\obj\\",
+      "outputPath": "C:\\Users\\hp\\source\\repos\\scorecard-cbt\\scorecard-cbt\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

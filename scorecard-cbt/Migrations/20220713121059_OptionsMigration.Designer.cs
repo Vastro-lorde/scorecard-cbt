@@ -10,8 +10,8 @@ using scorecard_cbt.Context;
 namespace scorecard_cbt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220708101706_opions-question")]
-    partial class opionsquestion
+    [Migration("20220713121059_OptionsMigration")]
+    partial class OptionsMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,6 +127,9 @@ namespace scorecard_cbt.Migrations
                     b.Property<string>("QuestionId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("option")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("QuestionId");
@@ -140,8 +143,9 @@ namespace scorecard_cbt.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<short>("AnswerOptionId")
-                        .HasColumnType("smallint");
+                    b.Property<string>("AnswerOption")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(250)
@@ -184,10 +188,15 @@ namespace scorecard_cbt.Migrations
             modelBuilder.Entity("scorecard_cbt.Models.Question", b =>
                 {
                     b.HasOne("scorecard_cbt.Models.Exam", "Exam")
-                        .WithMany()
+                        .WithMany("ExamQuestions")
                         .HasForeignKey("ExamId");
 
                     b.Navigation("Exam");
+                });
+
+            modelBuilder.Entity("scorecard_cbt.Models.Exam", b =>
+                {
+                    b.Navigation("ExamQuestions");
                 });
 
             modelBuilder.Entity("scorecard_cbt.Models.Question", b =>

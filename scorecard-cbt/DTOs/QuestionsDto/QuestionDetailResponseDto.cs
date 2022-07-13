@@ -7,7 +7,7 @@ namespace scorecard_cbt.DTOs
     {
         public string Description { get; set; }
         public virtual ICollection<Option> Options { get; set; }
-        public short AnswerOptionId { get; set; }
+        public char AnswerOption { get; set; }
         public virtual Exam Exam { get; set; }
     }
 }
