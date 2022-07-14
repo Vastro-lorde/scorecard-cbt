@@ -26,7 +26,6 @@ namespace scorecard_cbt.Services
         public async Task<Response<QuestionDetailResponseDto>> GetQuestionByIdAsync(string QuestionId)
         {
             var question = await _questionRepository.GetQuestionByIdAsync(QuestionId);
-            question.Options = await _optionRepository.GetOptionByQuestionAsync(QuestionId);
             if (question != null)
             {
                 var result = _mapper.Map<QuestionDetailResponseDto>(question);
@@ -42,10 +41,10 @@ namespace scorecard_cbt.Services
             throw new ArgumentException("Resourse not found");
         }
 
-        public async Task<Response<Question>> CreateQuestionAsync(QuestionRequestDto createQuestion)
+        public async Task<Response<Question>> CreateQuestionAsync(string ExamId, QuestionRequestDto createQuestion)
         {
             Question question = _mapper.Map<Question>(createQuestion);
-            var result = await _questionRepository.CreateQuestionAsync(question);
+            var result = await _questionRepository.CreateQuestionAsync(ExamId,question);
             if (result)
             {
                 return new Response<Question>()

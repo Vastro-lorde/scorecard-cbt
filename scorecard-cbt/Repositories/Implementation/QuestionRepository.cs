@@ -16,10 +16,16 @@ namespace scorecard_cbt.Repositories.Implementation
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<Question>();
         }
-        public async Task<bool> CreateQuestionAsync(Question question)
+        public async Task<bool> CreateQuestionAsync(string ExamId, Question question)
         {
-            _dbContext.Questions.Add(question);
-            return await _dbContext.SaveChangesAsync() > 0;
+            var Exam = await _dbContext.Exams.FindAsync(ExamId);
+            if (Exam != null)
+            {
+                question.ExamId = Exam.Id;
+                _dbContext.Questions.Add(question);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+            else { return false; };
         }
         public async Task<bool> DeleteQuestion(Question request)
         {

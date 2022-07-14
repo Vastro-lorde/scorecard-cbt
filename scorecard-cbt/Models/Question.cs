@@ -1,6 +1,7 @@
 ﻿using scorecard_cbt.ModelValidationHelper;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace scorecard_cbt.Models
 {
@@ -8,7 +9,6 @@ namespace scorecard_cbt.Models
     public class Question : BaseEntity
     {
         [Required]
-        [StringLength(250, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.DescriptionValidator)]
         public string Description { get; set; }
         public virtual ICollection<Option> Options { get; set; }
 
@@ -19,6 +19,7 @@ namespace scorecard_cbt.Models
         public string UpdatedBy { get; set; }
         public bool Status { get; set; }
         public char AnswerOption { get; set; }
-        public virtual Exam Exam { get; set; }
+        [ForeignKey(nameof(Exam))]
+        public string ExamId { get; set; }
     }
 }

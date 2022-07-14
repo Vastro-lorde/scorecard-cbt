@@ -52,11 +52,11 @@ namespace scorecard_cbt.Controllers
         }
 
         [HttpPost("CreateQuestion")]
-        public async Task<IActionResult> CreateQuestion(QuestionRequestDto createQuestion)
+        public async Task<IActionResult> CreateQuestion(string ExamId, QuestionRequestDto createQuestion)
         {
             try
             {
-                return Ok(await _questionService.CreateQuestionAsync(createQuestion));
+                return Ok(await _questionService.CreateQuestionAsync(ExamId, createQuestion));
             }
             catch (ArgumentException argex)
             {

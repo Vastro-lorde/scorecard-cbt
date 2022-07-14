@@ -19,6 +19,7 @@ using scorecard_cbt.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace scorecard_cbt
@@ -47,6 +48,8 @@ namespace scorecard_cbt
             services.AddScoped<IOptionService, OptionService>();
             services.AddScoped<IExamService, ExamService>();
             services.AddScoped<IImageService, ImageService>();
+            /*services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);*/
             var imageUploadConfig = Configuration
                 .GetSection("ImageUploadSettings")
                 .Get<ImageUploadSettings>();

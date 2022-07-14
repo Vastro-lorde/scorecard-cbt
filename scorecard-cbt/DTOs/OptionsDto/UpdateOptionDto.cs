@@ -3,6 +3,6 @@
     public class UpdateOptionDto
     {
         public string Answer { get; set; }
-        public string option { get; set; }
+        public string Tag { get; set; }
     }
 }

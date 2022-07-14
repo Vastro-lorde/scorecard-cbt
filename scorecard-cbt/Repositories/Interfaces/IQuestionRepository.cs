@@ -6,7 +6,7 @@ namespace scorecard_cbt.Repositories.Interfaces
 {
     public interface IQuestionRepository
     {
-        Task<bool> CreateQuestionAsync(Question question);
+        Task<bool> CreateQuestionAsync(string ExamId, Question question);
         Task<bool> DeleteQuestion(Question request);
         Task<List<Question>> GetAllQuestionsAsync();
         Task<Question> GetQuestionByIdAsync(string id);
