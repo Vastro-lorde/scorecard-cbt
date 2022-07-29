@@ -52,23 +52,6 @@ namespace scorecard_cbt.Services
             };
 
             return answer;
-
-            //course.UserName = registrationRequest.Email;
-            //var result = 
-            //if (result. )
-            //foreach(var item in result)
-            //{
-            //    course = item;
-            //}
-
-
-
-            //var response = _mapper.Map<RegistrationDto>(course);
-
-
-
-            //string errors = result.Errors.Aggregate(string.Empty, (current, error) => current + (error.Description + Environment.NewLine));
-            //throw new ArgumentException(errors);
         }
         public async Task<Response<Course>> DeleteCourseAsync(string courseId)
         {

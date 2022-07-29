@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using scorecard_cbt.DTOs;
 using scorecard_cbt.Interfaces;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace scorecard_cbt.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionsController : ControllerBase
@@ -85,12 +87,29 @@ namespace scorecard_cbt.Controllers
             }
         }
 
-        [HttpGet("UpdateQuestion/{id}")]
+        [HttpPatch("UpdateQuestion/{id}")]
         public async Task<IActionResult> UpdateQuestionById(string QuestionId, UpdateQuestionDto updateQuestion)
         {
             try
             {
                 return Ok(await _questionService.UpdateQuestionDetails(QuestionId, updateQuestion));
+            }
+            catch (ArgumentException argex)
+            {
+                return BadRequest(argex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpGet("GetQuestionsByExam")]
+        public async Task<IActionResult> GetQuestionsByExamAsync(string ExamId)
+        {
+            try
+            {
+                return Ok(await _questionService.GetQuestionsByExamAsync(ExamId));
             }
             catch (ArgumentException argex)
             {

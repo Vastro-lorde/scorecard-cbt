@@ -38,14 +38,14 @@ namespace scorecard_cbt
         {
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(typeof(CBTMappings));
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ICourseService, CourseService>();
-            services.AddAutoMapper(typeof(CBTMappings));
-            services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IOptionRepository, OptionRepository>();
             services.AddScoped<IOptionService, OptionService>();
+            services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IExamService, ExamService>();
             services.AddScoped<IImageService, ImageService>();
             /*services.AddControllers().AddJsonOptions(x =>
@@ -54,10 +54,39 @@ namespace scorecard_cbt
                 .GetSection("ImageUploadSettings")
                 .Get<ImageUploadSettings>();
             services.AddSingleton(imageUploadConfig);
+            services.AddCors(e => e.AddDefaultPolicy(builder => builder
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               ));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "scorecard_cbt", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter 'Bearer' [space] and then your valid token in the input below. \r\n\r\n Example : 'Bearer 124fsfs'"
+                }
+                );
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
         }
 
@@ -74,6 +103,7 @@ namespace scorecard_cbt
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 

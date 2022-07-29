@@ -135,5 +135,20 @@ namespace scorecard_cbt.Services
                 IsSuccessful = false
             };
         }
+        public async Task<Response<ICollection<Question>>> GetQuestionsByExamAsync(string ExamId)
+        {
+            var questions = await _questionRepository.GetQuestionstionByExamAsync(ExamId);
+            if (questions != null)
+            {
+                return new Response<ICollection<Question>>()
+                {
+                    Data = questions,
+                    IsSuccessful = true,
+                    Message = "Successful",
+                    ResponseCode = HttpStatusCode.OK
+                };
+            }
+            throw new ArgumentException("Resourses not found");
+        }
     }
 }

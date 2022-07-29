@@ -26,6 +26,9 @@ namespace scorecard_cbt.DTOs.Mapping
             CreateMap<OptionRequestDto, Option>().ReverseMap();
             CreateMap<OptionResponseDto, Option>().ReverseMap();
             CreateMap<Option, GetAllOptionResponseDto>().ReverseMap();
+
+            CreateMap<CreateResultDto, Result>().ReverseMap();
+            CreateMap<ResultResponseDto, Result>().ReverseMap();
         }
     }
 }

@@ -11,37 +11,21 @@ namespace scorecard_cbt.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    public class OptionsController : ControllerBase
+    public class ExamResultController : ControllerBase
     {
-        private readonly IOptionService _optionService;
-        public OptionsController(IOptionService optionService)
+        private readonly IResultServices _resultServices;
+
+        public ExamResultController(IResultServices resultServices)
         {
-            _optionService = optionService;
+            _resultServices = resultServices;
         }
 
-        [HttpGet("GetOptionById/{id}")]
-        public async Task<IActionResult> GetOptionById(string id)
+        [HttpGet("GetExamResultById/{id}")]
+        public async Task<IActionResult> GetPerformanceById(string id)
         {
             try
             {
-                return Ok(await _optionService.GetOptionByIdAsync(id));
-            }
-            catch (ArgumentException argex)
-            {
-                return BadRequest(argex.Message);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
-        }
-
-        [HttpGet("GetAllOptions")]
-        public async Task<IActionResult> GetAllOptions(int pageSize, int pageNumber)
-        {
-            try
-            {
-                return Ok(await _optionService.GetAllOptionsAsync(pageSize, pageNumber));
+                return Ok(await _resultServices.GetResultByIdAsync(id));
             }
             catch (ArgumentException argex)
             {
@@ -53,12 +37,13 @@ namespace scorecard_cbt.Controllers
             }
         }
 
-        [HttpPost("CreateOption")]
-        public async Task<IActionResult> CreateOption(string QuestionId, OptionRequestDto createOption)
+
+        [HttpGet("GetAllExamResults")]
+        public async Task<IActionResult> GetAllPerformanceScore(int pageSize, int pageNumber)
         {
             try
             {
-                return Ok(await _optionService.CreateOptionAsync(QuestionId, createOption));
+                return Ok(await _resultServices.GetAllResultsAsync(pageSize,pageNumber));
             }
             catch (ArgumentException argex)
             {
@@ -70,12 +55,13 @@ namespace scorecard_cbt.Controllers
             }
         }
 
-        [HttpDelete("DeleteOption")]
-        public async Task<IActionResult> DeleteOption(string OptionId)
+
+        [HttpGet("GetAllExamResultByUserId")]
+        public async Task<IActionResult> GetAllExamResultByUserId(int pageSize, int pageNumber, string UserId)
         {
             try
             {
-                return Ok(await _optionService.DeleteOptionAsync(OptionId));
+                return Ok(await _resultServices.GetResultsByUserIdAsync(pageSize, pageNumber, UserId));
             }
             catch (ArgumentException argex)
             {
@@ -86,12 +72,14 @@ namespace scorecard_cbt.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPatch("UpdateOption")]
-        public async Task<IActionResult> UpdateOptionById(string OptionId, UpdateOptionDto updateOptionDto)
+
+
+        [HttpGet("GetAllExamResultByExam/{id}")]
+        public async Task<IActionResult> GetAllExamResultByExam(string id, int pageSize, int pageNumber)
         {
             try
             {
-                return Ok(await _optionService.UpdateOptionDetails(OptionId, updateOptionDto));
+                return Ok(await _resultServices.GetResultsByExamAsync(pageSize, pageNumber, id));
             }
             catch (ArgumentException argex)
             {
@@ -102,12 +90,32 @@ namespace scorecard_cbt.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpGet("GetOptionByQuestion")]
-        public async Task<IActionResult> GetOptionsByQuestionAsync(string QuestionId)
+
+
+        [HttpPost("CreateExamResult")]
+        public async Task<IActionResult> CreateExamResult(CreateResultDto createResult)
         {
             try
             {
-                return Ok(await _optionService.GetOptionsByQuestionAsync(QuestionId));
+                return Ok(await _resultServices.CreateResultAsync(createResult));
+            }
+            catch (ArgumentException argex)
+            {
+                return BadRequest(argex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+
+        [HttpDelete("DeleteExamResult/{id}")]
+        public async Task<IActionResult> DeleteExamResultById(string Id)
+        {
+            try
+            {
+                return Ok(await _resultServices.DeleteResultAsync(Id));
             }
             catch (ArgumentException argex)
             {

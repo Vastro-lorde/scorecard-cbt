@@ -3,6 +3,7 @@ using scorecard_cbt.Context;
 using scorecard_cbt.Models;
 using scorecard_cbt.Repositories.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace scorecard_cbt.Repositories.Implementation
@@ -45,6 +46,11 @@ namespace scorecard_cbt.Repositories.Implementation
         {
             _dbSet.Update(request);
             return await _dbContext.SaveChangesAsync() > 0;
+        }
+        public async Task<ICollection<Question>> GetQuestionstionByExamAsync(string ExamId)
+        {
+            var questions = await _dbContext.Questions.Where(x => x.ExamId == ExamId).ToListAsync();
+            return questions;
         }
     }
 }

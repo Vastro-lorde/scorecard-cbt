@@ -11,5 +11,6 @@ namespace scorecard_cbt.Repositories.Interfaces
         Task<List<Question>> GetAllQuestionsAsync();
         Task<Question> GetQuestionByIdAsync(string id);
         Task<bool> UpdateQuestionAsync(Question request);
+        Task<ICollection<Question>> GetQuestionstionByExamAsync(string ExamId);
     }
 }

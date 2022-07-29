@@ -13,5 +13,6 @@ namespace scorecard_cbt.Interfaces
         Task<Response<PaginationModel<IEnumerable<GetAllQuestionResponseDto>>>> GetAllQuestionsAsync(int pageSize, int pageNumber);
         Task<Response<QuestionDetailResponseDto>> GetQuestionByIdAsync(string QuestionId);
         Task<Response<string>> UpdateQuestionDetails(string QuestionId, UpdateQuestionDto updateQuestionDto);
+        Task<Response<ICollection<Question>>> GetQuestionsByExamAsync(string ExamId);
     }
 }
