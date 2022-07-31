@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "w0mxpyyPHBdUyyNz84gWCFH4oCQYjplHD91+NxgnwSxNb3wt2GX20SB79V5/vsa+3S5x5LgARjPPr7zN4FklQg==",
+  "dgSpecHash": "Vo5u4jj47BeidAzryUWUCFFYD0k6ggO3fRt9heFiJQRP6pVBf4yrIxHSlkauG8kddnaNviLujVNrquJzhyn0zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\source\\repos\\scorecard-cbt\\scorecard-cbt\\scorecard-cbt.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,8 @@
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\npgsql\\5.0.10\\npgsql.5.0.10.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.10\\npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
