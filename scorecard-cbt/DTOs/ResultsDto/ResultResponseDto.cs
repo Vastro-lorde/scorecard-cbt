@@ -1,4 +1,6 @@
-﻿namespace scorecard_cbt.DTOs
+﻿using System;
+
+namespace scorecard_cbt.DTOs
 {
     public class ResultResponseDto
     {
@@ -8,5 +10,6 @@
         public short ExamScore { get; set; }
         public string Remark { get; set; }
         public string ExamId { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }
