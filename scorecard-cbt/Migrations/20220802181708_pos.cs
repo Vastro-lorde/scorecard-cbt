@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace scorecard_cbt.Migrations
 {
-    public partial class postgress : Migration
+    public partial class pos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

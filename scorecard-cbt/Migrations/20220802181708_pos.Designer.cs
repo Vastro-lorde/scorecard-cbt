@@ -10,8 +10,8 @@ using scorecard_cbt.Context;
 namespace scorecard_cbt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220731164005_postgress")]
-    partial class postgress
+    [Migration("20220802181708_pos")]
+    partial class pos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
